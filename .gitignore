@@ -1,0 +1,16 @@
+.idea/
+.pytest_cache/
+
+__pycache__/
+
+*.pyc
+*.o
+*.so
+
+*DS_Store*
+*.htm
+*.gif
+*.png
+*.dot
+
+.ipynb_checkpoints/

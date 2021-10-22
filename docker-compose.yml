@@ -1,0 +1,71 @@
+version: '2.3'
+services:
+  mongodb:
+    image: "mongo:4.1"
+    volumes:
+      - ${RN_APP_DATA_DIR}/mongodb:/data/db
+    ports:
+      - "27017:27017"
+    container_name: relnet-mongodb
+
+  manager:
+    image: relnet/relnet-manager
+    build:
+      context: .
+      dockerfile: ./docker/manager/Dockerfile
+      args:
+        RN_GID: ${RN_GID}
+        RN_GNAME: ${RN_GNAME}
+    volumes:
+      - ${RN_SOURCE_DIR}:/relnet
+      - ${RN_EXPERIMENT_DATA_DIR}:/experiment_data
+      - ${RN_APP_DATA_DIR}/rabbitmq:/var/lib/rabbitmq
+      - ${RN_APP_DATA_DIR}/flower:/flower
+    ports:
+      - "8888:8888"
+      - "6006:6006"
+      - "5555:5555"
+    stdin_open: true
+    tty: true
+    # network_mode: host
+    container_name: relnet-manager
+    hostname: relnet-manager
+    environment:
+      - "RN_GID=${RN_GID}"
+      - "RN_GNAME=${RN_GNAME}"
+      - "RN_LABORER_PW=${RN_LABORER_PW}"
+      - "RN_ADMIN_PW=${RN_ADMIN_PW}"
+
+  worker_cpu:
+    image: relnet/relnet-worker-cpu
+    build:
+      context: .
+      dockerfile: docker/worker_cpu/Dockerfile
+      args:
+        RN_GID: ${RN_GID}
+        RN_GNAME: ${RN_GNAME}
+    volumes:
+      - ${RN_EXPERIMENT_DATA_DIR}:/experiment_data
+      - ${RN_SOURCE_DIR}:/relnet
+    stdin_open: true
+    tty: true
+    # network_mode: host
+    container_name: relnet-worker-cpu
+    hostname: relnet-worker-cpu
+    mem_limit: 144gb
+    environment:
+      - "RN_GID=${RN_GID}"
+      - "RN_GNAME=${RN_GNAME}"
+      - "RN_LABORER_PW=${RN_LABORER_PW}"
+      - "RN_ADMIN_PW=${RN_ADMIN_PW}"
+
+  worker_gpu:
+    extends:
+      file: docker-compose.yml
+      service: worker_cpu
+    image: relnet/relnet-worker-gpu
+    build:
+      dockerfile: ./docker/worker_gpu/Dockerfile
+    container_name: relnet-worker-gpu
+    hostname: relnet-worker-gpu
+    mem_limit: 62gb

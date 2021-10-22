@@ -1,0 +1,2 @@
+#! /bin/bash
+rabbitmqadmin list queues name -u relnetadmin -p $RN_ADMIN_PW | awk '{print $2}' | grep celery | xargs -I qn rabbitmqadmin -u relnetadmin -p $RN_ADMIN_PW -V relnetvhost delete queue name=qn
