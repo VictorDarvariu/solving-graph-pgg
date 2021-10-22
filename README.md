@@ -1,6 +1,6 @@
 # Code for "Solving Graph-based Public Good Games with Tree Search and Imitation Learning"
 
-This is the code for the paper _Solving Graph-based Public Good Games with Tree Search and Imitation Learning_ by [Victor-Alexandru Darvariu](https://victor.darvariu.me), [Stephen Hailes](http://www.cs.ucl.ac.uk/drupalpeople/S.Hailes.html), and [Mirco Musolesi](https://mircomusolesi.org). If you use this code, please consider citing:
+This is the code for the paper _Solving Graph-based Public Good Games with Tree Search and Imitation Learning_ by [Victor-Alexandru Darvariu](https://victor.darvariu.me), [Stephen Hailes](http://www.cs.ucl.ac.uk/drupalpeople/S.Hailes.html) and [Mirco Musolesi](https://mircomusolesi.org), presented at [NeurIPS 2021](https://neurips.cc/Conferences/2021/). If you use this code, please consider citing:
 
 ```
 @inproceedings{darvariu_solving_2021,
