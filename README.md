@@ -88,19 +88,19 @@ The file `relnet/evaluation/experiment_conditions.py` contains the configuration
 
 Then, you can launch all the experiments as follows:
 
-### Part 1: Hyperparameter optimization & evaluation for all aproaches except IL-UCT
+### Part 1: Hyperparameter optimization & evaluation for all aproaches except GIL
 
 ```bash
 run_part1.sh
 ```
 
-### Part 2: Data collection for IL-UCT using the UCT algorithm
+### Part 2: Data collection for GIL using the UCT algorithm
 
 ```bash
 run_part2.sh
 ```
 
-### Part 3: Training & hyperparameter optimization for IL-UCT
+### Part 3: Training & hyperparameter optimization for GIL
 ```bash
 run_part3.sh
 ```
@@ -116,7 +116,7 @@ Jupyter notebooks are used to perform the data analysis and produce tables and f
 All tables and result figures can be obtained by opening the `GGNN_Evaluation.ipynb` notebook, selecting the `py3-relnet` kernel and run all cells. Resulting .pdf figures and .tex tables can be found at `$RN_EXPERIMENT_DIR/aggregate`.
 There are additional notebooks provided for analyzing the results of hyperparameter optimization:
 - `GGNN_Hyperparam_Optimisation.ipynb` for UCT
-- `GGNN_Hyperparam_Optimisation_IL.ipynb` for IL-UCT
+- `GGNN_Hyperparam_Optimisation_IL.ipynb` for GIL
  
  
 ### Problems with jupyter kernel

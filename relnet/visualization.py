@@ -37,7 +37,7 @@ agent_display_names = {
                        PayoffTransferAgent.algorithm_name: "PT",
                        SimulatedAnnealingAgent.algorithm_name: "SA",
                        MonteCarloTreeSearchAgent.algorithm_name: "UCT",
-                       ImitationLearningAgent.algorithm_name: "IL-UCT"
+                       ImitationLearningAgent.algorithm_name: "GIL (ours)"
 
                        }
 
