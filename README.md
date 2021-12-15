@@ -15,6 +15,11 @@ This is the code for the paper _Solving Graph-based Public Good Games with Tree 
 MIT.
 
 ## Prerequisites
+**Please ensure that you clone this repository under the `relnet` root directory**, e.g. 
+```
+git clone git@github.com:VictorDarvariu/solving-graph-pgg.git relnet
+````
+
 Currently tested on Linux and MacOS (specifically, CentOS 7.4.1708 and Mac OS Big Sur 11.2.3), can also be adapted to Windows through [WSL](https://docs.microsoft.com/en-us/windows/wsl/about). The host machine requires NVIDIA CUDA toolkit version 9.0 or above (tested with NVIDIA driver version 384.81).
 
 Makes heavy use of Docker, see e.g. [here](https://docs.docker.com/engine/install) for how to install. Tested with Docker 19.03. The use of Docker largely does away with dependency and setup headaches, making it significantly easier to reproduce the reported results.
